@@ -1,0 +1,75 @@
+.flex-container{
+    
+    display:flex;
+    flex-direction:row;
+    border:1.5px solid green;
+    //height:650px;
+    width:1000px;
+    margin:auto;
+    background-color:aqua;
+    
+}
+
+.flex-left{
+   display:flex;
+    text-decoration-color: black;
+    flex-direction:column;
+    border:1px solid black;
+   // height:600px;
+    width:300px;
+   // background-color:pink;  
+    
+}
+
+.flex-right{
+   display:flex;
+    flex-direction:column;
+    //background-image: url("/static/images/landing.jpg");
+    border:1.5px solid black ;
+    
+
+    width:100px;
+    //background-color:bisque;  
+    
+}
+
+.thumbnail{
+    width:120px;
+    height:120px;
+}
+
+.titlediv{
+     background-color:aquamarine;
+     width:800px;
+     height:70px;
+}
+
+.landing{
+     display:flex;
+    flex-direction:column;
+     width:100px;
+     height:7000px;
+}
+
+.myBox
+{
+    width:170px;
+    height:65px;
+    
+    cursor:pointer;
+    background-color:aquamarine;
+    text-decoration-color: blue;
+    margin-top: 15px;
+    padding:22px;
+    test-align: center;
+}
+
+
+.title{
+    text-align: center;
+    color:aliceblue;
+}
+.myBox:hover{
+    background-color: aliceblue;
+    color: snow;
+}

@@ -14,14 +14,14 @@ console.log("static files initialized...");
 
 app.use(connection(mysql,{
     host:'localhost',
-    user:'ui',
-    password:'ui1234',
-    database:'shopping_cart'
+    user:'root',
+    password:'passsword',
+    database:'person_form'
 },'request'));
 
-app.get("/service/inventory",function (req,res,next){
+app.get("/service/person",function (req,res,next){
         var ids=[];
-        var query="SELECT * from inventory";
+        var query="SELECT * from person";
         req.getConnection(function(err, connection){
     if(err) return next(err);
     connection.query(query,ids,function(err,results){
@@ -34,11 +34,11 @@ app.get("/service/inventory",function (req,res,next){
 });
 });
 
-app.get("/service/inventory/:INVENTORYTYPEID",function (req,res,next){
+app.get("/service/person/:personid",function (req,res,next){
         var ids=[];
-    var INVENTORYTYPEID=req.params.INVENTORYTYPEID;
-    ids.push(INVENTORYTYPEID);
-        var query="SELECT * from inventory  where INVENTORYTYPEID=?";
+    var personid=req.params.personid;
+    ids.push(personid);
+        var query="SELECT * from person where personid=?";
         req.getConnection(function(err, connection){
     if(err) return next(err);
     connection.query(query,ids,function(err,results){
@@ -50,60 +50,15 @@ app.get("/service/inventory/:INVENTORYTYPEID",function (req,res,next){
     });
 });
 });
-app.get( "/service/inventorytype",function(req, res, next){
-    //arrays to store dynamic parameters
-    var ids =[];
 
-    var query = "SELECT * FROM inventorytype";
-    req.getConnection(function(err, connection){
-        if(err) return next(err);
-
-        connection.query(query, ids, function(err, results){
-            if(err){
-                console.log(err);
-                return next("Mysql error, check your query");
-            }
-            res.json(results);
-
-        });
-
-
-    });
-
-
-});
-
-app.get( "/service/inventorytype/:ID",function(req, res, next){
-    //arrays to store dynamic parameters
-    var ids =[];
-    var id=req.params.id;
-    ids.push(id);
-
-    var query = "SELECT * FROM inventorytype WHERE Id = ?";
-    req.getConnection(function(err, connection){
-        if(err) return next(err);
-
-        connection.query(query, ids, function(err, results){
-            if(err){
-                console.log(err);
-                return next("Mysql error, check your query");
-            }
-            res.json(results);
-
-        });
-
-
-    });
-
-});
 
 
 
 //create
 //SAMPLE FOR TEMPLATING SERVICE
-var url="/service/customer/";
-var query="INSERT INTO customer SET ?";
-var data=["customerId","firstname","lastname","address","city","zip","email","phone"];
+var url="/service/person/";
+var query="INSERT INTO person SET ?";
+var data=["personid","firstname","lastname","address","phoneNumber","imgPath"];
 
 //END OF POST SERVICE TEMPLATE
 
