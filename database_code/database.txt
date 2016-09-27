@@ -1,0 +1,8 @@
+CREATE TABLE `person_form`.`person` (
+  `personid` INT NOT NULL,
+  `firstname` VARCHAR(45) NULL,
+  `lastname` VARCHAR(45) NULL,
+  `address` VARCHAR(45) NULL,
+  `phoneNumber` VARCHAR(45) NULL,
+  `imgPath` VARCHAR(45) NULL,
+  PRIMARY KEY (`personid`));
