@@ -6,3 +6,9 @@ CREATE TABLE `person_form`.`person` (
   `phoneNumber` VARCHAR(45) NULL,
   `imgPath` VARCHAR(45) NULL,
   PRIMARY KEY (`personid`));
+
+INSERT INTO `person_form`.`person` (`personid`, `firstname`, `lastname`, `address`, `phoneNumber`, `imgPath`) VALUES ('1', 'Barak', 'Obama', 'Washington ', '1023345528', '/img/obama.jpg');
+INSERT INTO `person_form`.`person` (`personid`, `firstname`, `lastname`, `address`, `phoneNumber`, `imgPath`) VALUES ('2', 'John', 'Robert', 'Dallas', '1234567891', '/img/gerald.jpg');
+INSERT INTO `person_form`.`person` (`personid`, `firstname`, `lastname`, `address`, `phoneNumber`, `imgPath`) VALUES ('3', 'Gerald ', 'Butler', 'Houston', '8934546776', '/img/john.jpg');
+INSERT INTO `person_form`.`person` (`personid`, `firstname`, `lastname`, `address`, `phoneNumber`, `imgPath`) VALUES ('4', 'George', 'Clooney', 'San antinio', '8897740922', '/img/Zac.jpg');
+INSERT INTO `person_form`.`person` (`personid`, `firstname`, `lastname`, `address`, `phoneNumber`, `imgPath`) VALUES ('5', 'Zac ', 'Efron', 'Austin', '5566779076', '/img/George .jpg');
