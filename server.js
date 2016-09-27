@@ -7,7 +7,7 @@ var app=express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
         extended:true
-        }));
+        }))
 
 app.use(express.static(__dirname + '/'));
 console.log("static files initialized...");
@@ -15,7 +15,7 @@ console.log("static files initialized...");
 app.use(connection(mysql,{
     host:'localhost',
     user:'root',
-    password:'passsword',
+    password:'password',
     database:'person_form'
 },'request'));
 
@@ -53,70 +53,30 @@ app.get("/service/person/:personid",function (req,res,next){
 
 
 
-
-//create
-//SAMPLE FOR TEMPLATING SERVICE
-var url="/service/person/";
-var query="INSERT INTO person SET ?";
-var data=["personid","firstname","lastname","address","phoneNumber","imgPath"];
-
-//END OF POST SERVICE TEMPLATE
-
-
-// this function is used to post varibales 
-function postService(url,sqlquery,data){
-
-    try{
-        var reqObj=req.body;
-        console.log(reqObj);
-        req.getConnection(function(err,conn){
-            if(err)
-                {
-                    console.error('SQL Connection error:', err);
-                return next(err);
-                }
-            else
-                {
-                    
-                    var insertSql=sqlquary;
-                    var insertValue={};
-                    for(var i=0; 1<data.length;i++){
-                        insertvalues[data[i]]=reqObj[data[i]];
-                    }
-                    var query= conn.query(insertSql, insertValue,function(err, result)
-                    {
-                       if(err){
-                           console.error('SQL error:', err);
-                           return next(err);
-                       } 
-                        console.log(result);
-                        var name_ID=result.insertId;
-                        res.json({"name":name_Id});
-                    });
-                }
-                });
-        }
-    
-catch(ex){
-    console.error("Internal error:"+ex);
-    return next(ex);
-        }
-}
-
-
 app.use(express.static(__dirname+'/'));
 
 
 app.get('/views/index',function(req,res){
     res.redirect('/views/index.html');
 });
-app.get('/',function(req,res){
-    res.redirect('/views/index.html');
-})
-
-
-
-app.listen(8080,function(){
-    console.log('server loaded on port 8000');
+app.get('/views/home',function(req,res){
+    res.redirect('/views/home.html');
 });
+app.get('/views/game',function(req,res){
+    res.redirect('/views/game.html');
+});
+app.get('/views/electronics',function(req,res){
+    res.redirect('/views/electronics.html');
+    });
+
+app.get('/landing', function(req,res){res.send('In landing page');
+});
+
+
+
+app.listen(1234,function(){
+    console.log('server loaded on port 1234');
+});
+
+
 
